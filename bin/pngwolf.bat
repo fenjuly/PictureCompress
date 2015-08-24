@@ -1,0 +1,1 @@
+%~dp0\..\lib\pngwolf.exe --in=%1 --out=%1 --max-stagnate-time=0 --max-evaluations=1 --zlib-level=7 --zlib-strategy=%2 --zlib-window=15 --zlib-memlevel=%3 --7zip-mpass=%4 --even-if-bigger

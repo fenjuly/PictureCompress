@@ -1,0 +1,1 @@
+%~dp0\..\lib\jpegtran.exe %1 > %2

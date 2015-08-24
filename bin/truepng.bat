@@ -1,0 +1,1 @@
+%~dp0\..\lib\truepng.exe -f0,5 -i0 -g0 -a0 -md remove all -zc7 -zm4-9 -zs0-3 -force -y %1

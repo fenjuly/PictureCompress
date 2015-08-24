@@ -1,0 +1,1 @@
+%~dp0\..\lib\cryopng.exe -for -q -zc7 -zm1 -zs1 -f1 %1
