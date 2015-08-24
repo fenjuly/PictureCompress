@@ -24,8 +24,10 @@ Simple tools to compress all png or jpeg files in you folder（Lossless compress
 
 * 备份完后就开始压缩，你可能担心的地方有：
 
-  ＋ 若某些图片用这个工具处理后，大小不仅没变小反而变大了怎么办？ 
-  ＋ 若对于某些图片，在处理到一半的时候出错了怎么办？
+  1. 若某些图片用这个工具处理后，大小不仅没变小反而变大了怎么办？ 
+
+  2. 若对于某些图片，在处理到一半的时候出错了怎么办？
+  
 对于第一点，若发现处理过后大小反而变大，那么这个工具就会有先前备份的图片替换处理过的图片。第二点，同理，若发现出错，同样会从备份文件里面恢复。
 
 * 完成压缩后，你可以点击`open log file`（文件处于myfolderBackup/下）来查看每一个图片的压缩信息。
@@ -33,6 +35,6 @@ Simple tools to compress all png or jpeg files in you folder（Lossless compress
 
 * 另外就是，如果这个工具处理某些图片的过程中出错了（可能这是一个jpg格式的图片但是却是png的文件拓展:( ）那么这个工具会在处理完后生成一个白名单文件，工具会将这个出错的图片加入白名单。又或者某些图片你根本不想处理，你可以手动添加一个白名单。这个白名单位于folderBackup/whiteName.txt
 
-欢迎大家吐槽＝＝。
+欢迎大家使用和吐槽:)。
 
 
