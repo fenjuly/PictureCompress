@@ -35,6 +35,7 @@ Simple tools to compress all png or jpeg files in you folder（Lossless compress
 
 * 另外就是，如果这个工具处理某些图片的过程中出错了（可能这是一个jpg格式的图片但是却是png的文件拓展:( ）那么这个工具会在处理完后生成一个白名单文件，工具会将这个出错的图片加入白名单。又或者某些图片你根本不想处理，你可以手动添加一个白名单。这个白名单位于folderBackup/whiteName.txt
 
+代码很烂，建议不要看。。。
 欢迎大家使用和吐槽:)。
 
 
