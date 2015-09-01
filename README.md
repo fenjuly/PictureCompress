@@ -9,7 +9,9 @@ Simple tools to compress all png or jpeg files in you folder（Lossless compress
 * 对于JPEG图片
 实际上是调用`jpegtran.exe`。
 
-###用法
+###用法----------------------------------->
+                     windows
+----------------------------------->
 首先你的电脑上需要有jre环境
 * 将这个项目fork下来，直接运行`picture_compress.jar`
 ![](https://github.com/fenjuly/Mini/raw/master/mypiclib/picture_compress.png)
@@ -38,4 +40,10 @@ Simple tools to compress all png or jpeg files in you folder（Lossless compress
 代码很烂，建议不要看。。。
 欢迎大家使用和吐槽:)。
 
+###用法----------------------------------->
+                     linux or mac
+----------------------------------->
 
+1、先安装wine，详细可参考https://www.winehq.org/download
+2、输入命令： source ScriptPNG.sh png目录
+   脚本会自动在png目录的同一级目录备份一份png资源
