@@ -112,7 +112,7 @@ public class RunShell implements ScriptBase.HandleFileListener{
             } else {
                 type = 1;
             }
-            if (!whiteNameFiles.contains(compressFiles.get(i).getAbsolutePath())) {
+            if (!whiteNameFiles.contains(compressFiles.get(i).getName())) {
                 CompressRunnable runnable = new CompressRunnable(compressFiles.get(i), whiteNameFile, toolName, backupFiles.get(i), logFile, this, type);
                 cachedThreadPool.execute(runnable);
             } else {
@@ -148,10 +148,10 @@ public class RunShell implements ScriptBase.HandleFileListener{
             ScriptBase scriptBase = null;
             switch (pngOrJpeg) {
                 case 0:
-                    scriptBase = new ScriptPNG(pngFile, whiteNameFile, toolName, backupFile, logFile, handleFileListener);
+                    scriptBase = new ScriptPNG(pngFile, whiteNameFile, toolName, backupFile, logFile, handleFileListener, rootName);
                     break;
                 case 1:
-                    scriptBase = new ScriptJPEG(pngFile, whiteNameFile, toolName, backupFile, logFile, handleFileListener);
+                    scriptBase = new ScriptJPEG(pngFile, whiteNameFile, toolName, backupFile, logFile, handleFileListener, rootName);
             }
             scriptBase.startCompress();
         }
@@ -243,6 +243,11 @@ public class RunShell implements ScriptBase.HandleFileListener{
             String fileName = null;
             while((fileName = br.readLine()) != null) {
                 if (!fileName.equals("")) {
+//                    String p = rootName;
+//                    if (!p.endsWith(File.separator)) {
+//                        p = p + File.separator;
+//                    }
+//                    fileName = p + fileName;
                     whiteNameFiles.add(fileName);
                 }
             }

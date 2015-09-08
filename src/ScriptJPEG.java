@@ -7,13 +7,14 @@ import java.nio.channels.FileChannel;
 public class ScriptJPEG extends ScriptBase{
 
     public ScriptJPEG(File file, File whiteNameFile, String rootPath, File bFile, File logFile,
-                     HandleFileListener handleFileListener) {
+                     HandleFileListener handleFileListener, String path) {
         this.pngFile = file;
         this.whiteNameFile = whiteNameFile;
         this.rootPath = rootPath;
         this.bFile = bFile;
         this.logFile = logFile;
         this.handleFileListener = handleFileListener;
+        this.path = path;
     }
 
     public ScriptJPEG() {
@@ -25,7 +26,8 @@ public class ScriptJPEG extends ScriptBase{
         jpegTran(pngFile);
         long currentFileSize = pngFile.length();
         float ratio = (float) currentFileSize / originalFileSize;
-        if (ratio >= 1) {
+        if (ratio >= 1 || ratio <= 0) {
+            ratio = 1;
             restore();
         }
 
@@ -55,7 +57,8 @@ public class ScriptJPEG extends ScriptBase{
             if (ps.exitValue() < 0) {
                 isExecuteError = true;
                 restore();
-                writeWhiteName(pngFile.getAbsolutePath());
+//                writeWhiteName(path, pngFile.getAbsolutePath());
+                writeWhiteName(pngFile.getName());
                 handleFileListener.onFinished();
             }
         } catch (Exception e) {

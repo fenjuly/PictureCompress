@@ -17,13 +17,14 @@ public class ScriptPNG extends ScriptBase {
 
 
     public ScriptPNG(File file, File whiteNameFile, String rootPath, File bFile, File logFile,
-                     HandleFileListener handleFileListener) {
+                     HandleFileListener handleFileListener, String path) {
         this.pngFile = file;
         this.whiteNameFile = whiteNameFile;
         this.rootPath = rootPath;
         this.bFile = bFile;
         this.logFile = logFile;
         this.handleFileListener = handleFileListener;
+        this.path = path;
     }
 
     public ScriptPNG() {
@@ -40,6 +41,7 @@ public class ScriptPNG extends ScriptBase {
                 long currentFileSize = pngFile.length();
                 float ratio = (float) currentFileSize / originalFileSize;
                 if (ratio >= 1) {
+                    ratio = 1;
                     restore();
                 }
                 if (isExecuteError) {
@@ -76,7 +78,8 @@ public class ScriptPNG extends ScriptBase {
             if (ps.exitValue() < 0) {
                 isExecuteError = true;
                 restore();
-                writeWhiteName(pngFile.getAbsolutePath());
+//                writeWhiteName(path, pngFile.getAbsolutePath());
+                writeWhiteName(pngFile.getName());
                 handleFileListener.onFinished();
             }
         } catch (Exception e) {
@@ -97,7 +100,8 @@ public class ScriptPNG extends ScriptBase {
             e.printStackTrace();
             restore();
             writeLog(e.toString());
-            writeWhiteName(file.getAbsolutePath());
+//            writeWhiteName(path, file.getAbsolutePath());
+            writeWhiteName(file.getName());
             return false;
         }
         return true;
@@ -112,7 +116,8 @@ public class ScriptPNG extends ScriptBase {
             e.printStackTrace();
             restore();
             writeLog(e.toString());
-            writeWhiteName(file.getAbsolutePath());
+//            writeWhiteName(path, file.getAbsolutePath());
+            writeWhiteName(file.getName());
             return false;
         }
         return true;

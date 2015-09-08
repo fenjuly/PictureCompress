@@ -12,12 +12,30 @@ public abstract class ScriptBase {
     protected File whiteNameFile;
     protected File bFile;
     protected File logFile;
+    protected String path;
 
     protected HandleFileListener handleFileListener;
 
     protected boolean isExecuteError = false;
 
     public abstract void startCompress();
+
+    protected void writeWhiteName(String prefix, String content) {
+        try {
+            String p;
+            if (!prefix.endsWith(File.separator)) {
+               prefix = prefix + File.separator;
+            }
+            p = content.replace(prefix, "");
+            FileWriter fw = new FileWriter(whiteNameFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.append(p + "\n");
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     protected void writeWhiteName(String content) {
         try {
