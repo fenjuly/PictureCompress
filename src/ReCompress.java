@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.nio.file.Paths;
 
 /**
@@ -30,6 +31,7 @@ public class ReCompress extends JFrame implements ActionListener, RunShell.Compr
     String log;
     String whiteName;
 
+    String backupPath;
     long startTime = 0;
     long endTime = 0;
 
@@ -169,6 +171,27 @@ public class ReCompress extends JFrame implements ActionListener, RunShell.Compr
             if (isStarted) {
                 String[] cmd = {"cmd", "/c", whiteName};
                 excute(cmd);
+            } else {
+                if (jtf.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "please choose file folder you want to deal with");
+                } else {
+                    backupPath = jtf.getText() + "Backup";
+                    String whiteNameF = backupPath + "\\whiteName.txt";
+                    File f = new File(backupPath);
+                    if (!f.exists()) {
+                        f.mkdirs();
+                    }
+                    File wf = new File(whiteNameF);
+                    try {
+                        if (!wf.exists()) {
+                            wf.createNewFile();
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    String[] cmd = {"cmd", "/c", whiteNameF};
+                    excute(cmd);
+                }
             }
         }
     }
